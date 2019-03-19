@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<world
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='jaxb/xmlfile/fig7.txt.xsd'>
+    <name>Sephora</name>
+    <logo>world.jpg</logo>
+    <money>1</money>
+    <score>0</score>
+    <totalangels>0</totalangels>
+    <activeangels>0</activeangels>
+    <angelbonus>0</angelbonus>
+    <lastupdate>
+        
+    </lastupdate>
+    <products>
+        <product>
+            <id>
+                10
+            </id>
+            <name>lipstick</name>
+            <logo>
+                mac.jpg
+            </logo>
+            <cout>
+                4.28
+            </cout>
+            <croissance>
+                1,07
+            </croissance>
+            <revenu>
+                2
+            </revenu>
+            <vitesse>
+                1000
+            </vitesse>
+            <quantite>
+                1
+            </quantite>
+            <timeleft>
+                0
+            </timeleft>
+            <managerUnlocked>false</managerUnlocked>
+            <palliers>
+                20
+            </palliers>
+        </product>
+        <product>
+            <id>
+                20
+            </id>
+            <name>
+                mascara
+            </name>
+            <logo>
+                masc.jpg
+            </logo>
+            <cout>69</cout>
+            <croissance>1,07</croissance>
+            <revenu>60</revenu>
+            <vitesse>4000</vitesse>
+            <quantite>1</quantite>
+            <timeleft>3000</timeleft>
+            <managerUnlocked>false</managerUnlocked>
+            <palliers>
+                50
+            </palliers>
+        </product>
+        <product>
+            <id> 30 </id>
+            <name>
+                eye shadow
+            </name>
+            <logo>
+                eye.jpg
+            </logo>
+            <cout>
+                150
+            </cout>
+            <croissance>
+                1,07
+            </croissance>
+            <revenu>
+                100
+            </revenu>
+            <vitesse>
+                8000
+            </vitesse>
+            <quantite>1</quantite>
+            <timeleft>
+                6000
+            </timeleft>
+            <managerUnlocked>false</managerUnlocked>
+            <palliers>
+                80
+            </palliers>
+        </product>
+        <product>
+            <id> 40 </id>
+            <name>
+                blush
+            </name>
+            <logo>
+                blush.jpg
+            </logo>
+            <cout>
+                200
+            </cout>
+            <croissance>
+                1,07
+            </croissance>
+            <revenu>
+                150
+            </revenu>
+            <vitesse>
+                10000
+            </vitesse>
+            <quantite>1</quantite>
+            <timeleft>
+                8000
+            </timeleft>
+            <managerUnlocked>false</managerUnlocked>
+            <palliers>
+                100
+            </palliers>
+        </product>
+    </products>
+    <allunlocks>
+        <pallier>
+            <name>range of makeup</name>
+            <logo>mac.jpg</logo>
+            <seuil>20</seuil>
+            <idcible>0</idcible>
+            <ratio>2</ratio>
+            <typeratio>VITESSE</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>makeup shelf</name>
+            <logo>masc.jpg</logo>
+            <seuil>50</seuil>
+            <idcible>20</idcible>
+            <ratio>3</ratio>
+            <typeratio>VITESSE</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+    </allunlocks>
+    <upgrades>
+        <upgrade>
+            <name>smoked purple</name>
+            <logo>mac.jpg</logo>
+            <seuil>500</seuil>
+            <idcible>10</idcible>
+            <ratio>3</ratio>
+            <typeratio>GAIN</typeratio>
+            <unlocked>false</unlocked>
+        </upgrade>
+        <upgrade>
+            <name>hot yellow</name>
+            <logo>mac.jpg</logo>
+            <seuil>1000</seuil>
+            <idcible>10</idcible>
+            <ratio>7</ratio>
+            <typeratio>GAIN</typeratio>
+            <unlocked>false</unlocked>
+        </upgrade>
+        <upgrade>
+            <name>black mascara</name>
+            <logo>masc.jpg</logo>
+            <seuil>500</seuil>
+            <idcible>20</idcible>
+            <ratio>3</ratio>
+            <typeratio>GAIN</typeratio>
+            <unlocked>false</unlocked>
+        </upgrade>
+        <upgrade>
+            <name>pink mascara</name>
+            <logo>masc.jpg</logo>
+            <seuil>1000</seuil>
+            <idcible>20</idcible>
+            <ratio>7</ratio>
+            <typeratio>GAIN</typeratio>
+            <unlocked>false</unlocked>
+        </upgrade>
+    </upgrades>
+    <angelupgrades>
+        <angelupgrade>
+            <name>angel sacrifice</name>
+            <logo>angel.jpg</logo>
+            <seuil>10000</seuil>
+            <idcible>-1</idcible>
+            <ratio>3</ratio>
+            <typeratio>GAIN</typeratio>
+            <unlocked>false</unlocked>
+        </angelupgrade>
+        <angelupgrade>
+            <name>angelic mutiny</name>
+            <logo>angel.jpg</logo>
+            <seuil>100000</seuil>
+            <idcible>-1</idcible>
+            <ratio>2</ratio>
+            <typeratio>ANGE</typeratio>
+            <unlocked>false</unlocked>
+        </angelupgrade>
+        <angelupgrade>
+            <name>angelic rebellion</name>
+            <logo>angel.jpg</logo>
+            <seuil>100000000</seuil>
+            <idcible>-1</idcible>
+            <ratio>2</ratio>
+            <typeratio>ANGE</typeratio>
+            <unlocked>false</unlocked>
+        </angelupgrade>
+        
+    </angelupgrades>
+    <managers>
+        <manager>
+            <name>Gigi</name>
+            <logo>gigi.jpg</logo>
+            <seuil>1000</seuil>
+            <idcible>10</idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked>false</unlocked>
+        </manager>
+        <manager>
+            <name>Miranda</name>
+            <logo>miranda.jpg</logo>
+            <seuil>5000</seuil>
+            <idcible>20</idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked>false</unlocked>
+        </manager>
+            
+        
+    </managers>
+
+</world>

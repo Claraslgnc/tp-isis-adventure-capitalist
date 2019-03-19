@@ -1,0 +1,12 @@
+com\isis\adventureISIServer\demo\Webservices.class
+generated\PallierType.class
+generated\World.class
+com\isis\adventureISIServer\demo\Services.class
+generated\PalliersType.class
+generated\ProductsType.class
+com\isis\adventureISIServer\demo\JerseyConfig.class
+com\isis\adventureISIServer\demo\CORSResponseFilter.class
+generated\TyperatioType.class
+generated\ObjectFactory.class
+generated\ProductType.class
+com\isis\adventureISIServer\demo\DemoApplication.class
