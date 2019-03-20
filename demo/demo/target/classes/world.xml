@@ -9,8 +9,8 @@ and open the template in the editor.
 <world
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='jaxb/xmlfile/fig7.txt.xsd'>
-    <name>Sephora</name>
-    <logo>world.jpg</logo>
+    <name>Adventure MakeUp</name>
+    <logo>logo1.jpg</logo>
     <money>1</money>
     <score>0</score>
     <totalangels>0</totalangels>

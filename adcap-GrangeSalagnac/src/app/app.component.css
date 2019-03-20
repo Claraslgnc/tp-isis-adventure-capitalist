@@ -1,7 +1,16 @@
+/* body{
+    background-image:url(fond.jpg); 
+} */
+
+
 img {
-	width: 100px;
-    height: 100px;
+	width: 180px;
+    height: 150px;
     border-radius: 10%
+}
+
+.btn{
+    background-color: #f69594;
 }
 
 .superp {
@@ -10,5 +19,31 @@ img {
 
 .buton {
     position: absolute;
-    bottom: -10px;
+    bottom: 20px;
+}
+
+
+.col-md-6{
+    width: 40%;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 20px;
+    
+    
+    
+}
+
+.col-md-4{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 60px;
+    width: 100%;
+    
+
+}
+
+.col-md-2{
+    width: 10%;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    
 }
