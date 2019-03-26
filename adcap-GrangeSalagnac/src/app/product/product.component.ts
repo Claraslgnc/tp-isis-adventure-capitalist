@@ -37,7 +37,7 @@ export class ProductComponent implements OnInit {
       trailColor: '#eee',
       trailWidth: 1,
       svgStyle: {width: '100%', height: '100%'},
-      from: {color: '#FFEA82'},
+      from: {color: '#483D37'},
       to: {color: '#f69594'},
       step: (state, bar) => {
         bar.path.setAttribute('stroke', state.color);

@@ -4,8 +4,7 @@
 
 
 img {
-	width: 180px;
-    height: 150px;
+	width: 100px;
     border-radius: 10%
 }
 
@@ -27,17 +26,29 @@ img {
     width: 40%;
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 20px;
-    
-    
-    
+}
+
+.col-h100 {
+    height: 100%;
+}
+
+#menubar {
+    position: relative;
+    height: 110px;
+}
+ 
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #nom_et_logo{
     font-family: 'Permanent Marker', cursive;
-    font-size: 50px;
-    width: 40%;
-    
-
+    font-size: 37px;
+    color: #483D37;
+    /* width: 40%; */
 }
 
 #logo{
@@ -45,7 +56,6 @@ img {
 }
 
 #score{
-    
     text-align: center;
     font-size: 25px;
     vertical-align: middle;
@@ -59,7 +69,8 @@ img {
 
 .badge{
     font-family: 'Fira Sans Condensed', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
+    background-color: #483D37;
 }
 
 .col-md-2{

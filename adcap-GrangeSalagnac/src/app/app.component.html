@@ -12,21 +12,19 @@ border-color:transparent;
 
 <body>
   <div class="container-fluid">
-  <div class="row">
+  <div class="row" id="menubar">
   <div class="col-md-4" id="nom_et_logo">
     <span id=logo>
     <img [attr.src]="server+world.logo" /> </span>
     <span id="worldname"> {{world.name}} </span>
   </div>
-  <div class="col-md-4" id="score">
-        <br/>
-      <span class="badge badge-secondary">$<span [innerHTML]="world.money | bigvalue"></span></span>
-      <br/>
+  <div class="col-md-4 col-h100" id="score">
+      <span class="badge badge-secondary center">$<span [innerHTML]="world.money | bigvalue"></span></span>
     </div>
-   <div class="col-md-4" id="buy">
-        <br/>
-      <button type="button" class="btn btn-primary">BUY</button>
-      <br/>
+   <div class="col-md-4 col-h100" id="buy">
+    
+      <button type="button" class="btn btn-primary center">BUY</button>
+    
     </div>
 
   </div>
