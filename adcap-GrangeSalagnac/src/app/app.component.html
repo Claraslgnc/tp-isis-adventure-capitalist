@@ -1,5 +1,6 @@
 <head>
-        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Fira+Sans+Condensed|Permanent+Marker" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Fira+Sans+Condensed|News+Cycle|Permanent+Marker" rel="stylesheet">
+
 <style>
 * {
 border: 2px solid;
@@ -12,16 +13,27 @@ border-color:transparent;
 <body>
   <div class="container-fluid">
   <div class="row">
-  <div class="col-md-4">
-    <span>
+  <div class="col-md-4" id="nom_et_logo">
+    <span id=logo>
     <img [attr.src]="server+world.logo" /> </span>
     <span id="worldname"> {{world.name}} </span>
   </div>
-  <div class="col-md-4"><!----Entete2--></div>
-  <div class="col-md-4"><!----Entete3--></div>
+  <div class="col-md-4" id="score">
+        <br/>
+      <span class="badge badge-secondary">$<span [innerHTML]="world.money | bigvalue"></span></span>
+      <br/>
+    </div>
+   <div class="col-md-4" id="buy">
+        <br/>
+      <button type="button" class="btn btn-primary">BUY</button>
+      <br/>
+    </div>
+
   </div>
+  <br/>
+  <br/>
   <div class="row">
-      
+
   <div class="col-md-2">
         <br/>
         <br/>
@@ -59,7 +71,7 @@ border-color:transparent;
       
   </div>
   <div class="col-md-6" *ngFor="let product of world.products.product">
-      <app-product [prod]="product" [serv]="server"></app-product>
+      <app-product [prod]="product" [serv]="server" (notifyProduction)="onProductionDone($event)"></app-product>
     </div>
       <!--
         <div class="row">
