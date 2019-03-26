@@ -17,16 +17,13 @@ const ProgressBar = require("progressbar.js");
 export class ProductComponent implements OnInit {
   
   server: string;
-
   progressbar: any;
-  tpsr: any;
-  timeleft: any;
+  lastupdate: number;
 
   @ViewChild('bar') progressBarItem;
-  lastupdate: any;
-  constructor() { }
+  timeleft: number;
 
-  @Output() notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
+  constructor() { }
 
   ngOnInit() {
 
@@ -43,7 +40,7 @@ export class ProductComponent implements OnInit {
         bar.path.setAttribute('stroke', state.color);
       }});
 
-    setInterval(() => { this.calcScore(this.progressbar, this.timeleft, this.lastupdate, this.tpsr); }, 100);
+    setInterval(() => { this.calcScore(); }, 100);
     //this.progressbar.animate(1, { duration: this.product.vitesse });
     //this.progressbar.set(0.5);
 
@@ -66,30 +63,34 @@ export class ProductComponent implements OnInit {
       this.server = value;
       console.log(this.server);
       }
-  
+
+  @Output() 
+  notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
 
   startFabrication(progressbar: any, timeleft: any, lastupdate: any){
-    this.timeleft = this.product.vitesse;
+    this.progressbar.set(0);
+    this.progressbar.animate(1, { duration: this.product.vitesse, easing: 'easeInOut' });
+    this.product.timeleft = this.product.vitesse;
     this.lastupdate = Date.now();
-    this.progressbar.animate(1, { duration: this.product.vitesse });
   }
 
-  calcScore(progressbar: any, timeleft: any, lastupdate: any, tpsr: any){
-    
-    if (this.timeleft != 0) {
-      tpsr = (Date.now() - this.lastupdate)
-      timeleft = timeleft - tpsr;
-
-      if (this.timeleft = 0){
-        this.progressbar.set(0)
-      }
-      if(this.timeleft<0){
-        // on prévient le composant parent que ce produit a généré son revenu.
+  calcScore(): void {
+    let now=Date.now();
+    let elapseTime = now - this.lastupdate;
+    this.lastupdate = now;
+    if (this.product.timeleft != 0) {
+      this.product.timeleft = this.product.timeleft - elapseTime;
+      if (this.product.timeleft <= 0){
+        console.log("fini");
+        this.product.timeleft = 0;
+        this.progressbar.set(0);
         this.notifyProduction.emit(this.product);
-        this.progressbar.set(0)
-      }
+      } 
     }
   }
+
+
+
 
 }
 

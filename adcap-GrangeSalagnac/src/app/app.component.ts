@@ -23,9 +23,10 @@ service.getWorld().then(world => {
   });
 }
 
-/*onProductionDone(Product p){
+onProductionDone(p: Product){
+  
 
 
-}*/
+}
 
 }
