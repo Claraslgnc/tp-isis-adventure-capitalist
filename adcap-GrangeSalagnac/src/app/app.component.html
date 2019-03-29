@@ -53,8 +53,11 @@ border-color:transparent;
       <br/>
       <br/>
       
-   
-          <button type="button" class="btn btn-primary">Managers</button>
+      <div class="buttonleft btn btn-primary" data-toggle="modal" (click)="managersModal.show()" > 
+          Managers
+          
+      </div>
+          <!-- <button type="button" class="btn btn-primary">Managers</button> -->
       
       <br/>
       <br/>
@@ -71,6 +74,33 @@ border-color:transparent;
   <div class="col-md-6" *ngFor="let product of world.products.product">
       <app-product [prod]="product" [serv]="server" (notifyProduction)="onProductionDone($event)" [qtmulti]="facteurMulti[multi]"></app-product>
     </div>
+
+
+
+    <app-modal #managersModal>
+        <div class="app-modal-header">
+        <h4 class="modal-title">Managers make you feel better !</h4> </div>
+        <div class="app-modal-body">
+            <div class="mngr" *ngFor="let manager of world.managers.pallier" >
+                    <div class="row">
+                            <div class="col-md-3">
+                                    <img class="img" [attr.src]="server+manager.logo">
+                                    LOGO
+                            </div>
+                        
+                        <div class="buton"><button type="button" class="btn btn-dark">Hire !</button></div> 
+                    </div>
+                    
+                     
+
+            </div>
+        </div>
+        <div class="app-modal-footer">
+        <button type="button" class="btn btn-default" (click)="managersModal.hide()">Close</button> 
+        </div>
+    </app-modal>
+
+
       <!--
         <div class="row">
             <div class="col-md-6">

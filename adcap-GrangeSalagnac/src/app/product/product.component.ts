@@ -19,10 +19,13 @@ export class ProductComponent implements OnInit {
   server: string;
   progressbar: any;
   lastupdate: number;
-
+  money: number;
+  timeleft: number;
+  product: Product;
+  _qtmulti: number;
 
   @ViewChild('bar') progressBarItem;
-  timeleft: number;
+  
 
   constructor() { }
 
@@ -50,7 +53,7 @@ export class ProductComponent implements OnInit {
   }
  
 
-  product: Product;
+  
 
 
   @Input()
@@ -93,21 +96,22 @@ export class ProductComponent implements OnInit {
 
 
 
-  calcMaxCanBuy(){
-    let x=this.product.cout;
-    let c=this.product.croissance;
-    //let a = this.money;
-    //this.money = (Math.log((1/c)-( ( a*(1-c)/(x*c) ))))/Math.log(c);
+  calcMaxCanBuy(): any{
+    var x=this.product.cout;
+    var c=this.product.croissance;
+    var a = this.money;
+    this.money = (Math.log((1/c)-( ( a*(1-c)/(x*c) ))))/Math.log(c);
+    return this.money;
     
   }
 
-  _qtmulti: number;
+ 
   @Input()
  set qtmulti(value: number) {
     this._qtmulti = value;
-    /* if (this._qtmulti && this.product){
+    if (this._qtmulti && this.product){
       if(this.qtmulti == 1){
-        this.money -= this.product.cout * this.product.croissance
+        //this. -= this.product.cout * this.product.croissance
       }
       else if (this.qtmulti == 10){
         //this.money -= this.product.cout * this.product.croissance
@@ -116,9 +120,9 @@ export class ProductComponent implements OnInit {
         //this.money = 
       }
       else{
-        this.calcMaxCanBuy();
+        //this.calcMaxCanBuy();
       }
-    } */
+    }
   } 
 
 
