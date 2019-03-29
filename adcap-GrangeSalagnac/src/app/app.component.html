@@ -23,7 +23,7 @@ border-color:transparent;
     </div>
    <div class="col-md-4 col-h100" id="buy">
     
-      <button type="button" class="btn btn-primary center">BUY</button>
+      <button type="button" class="btn btn-primary center" (click)="onClickBuy()">BUY x{{facteurMulti[multi]}}</button>
     
     </div>
 
@@ -69,7 +69,7 @@ border-color:transparent;
       
   </div>
   <div class="col-md-6" *ngFor="let product of world.products.product">
-      <app-product [prod]="product" [serv]="server" (notifyProduction)="onProductionDone($event)"></app-product>
+      <app-product [prod]="product" [serv]="server" (notifyProduction)="onProductionDone($event)" [qtmulti]="facteurMulti[multi]"></app-product>
     </div>
       <!--
         <div class="row">

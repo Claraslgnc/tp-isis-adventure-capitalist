@@ -20,6 +20,7 @@ export class ProductComponent implements OnInit {
   progressbar: any;
   lastupdate: number;
 
+
   @ViewChild('bar') progressBarItem;
   timeleft: number;
 
@@ -84,6 +85,7 @@ export class ProductComponent implements OnInit {
         console.log("fini");
         this.product.timeleft = 0;
         this.progressbar.set(0);
+        //on prévient le parent que ce produit a généré son revenu.
         this.notifyProduction.emit(this.product);
       } 
     }
@@ -91,7 +93,34 @@ export class ProductComponent implements OnInit {
 
 
 
+  calcMaxCanBuy(){
+    let x=this.product.cout;
+    let c=this.product.croissance;
+    //let a = this.money;
+    //this.money = (Math.log((1/c)-( ( a*(1-c)/(x*c) ))))/Math.log(c);
+    
+  }
+
+  _qtmulti: number;
+  @Input()
+ set qtmulti(value: number) {
+    this._qtmulti = value;
+    /* if (this._qtmulti && this.product){
+      if(this.qtmulti == 1){
+        this.money -= this.product.cout * this.product.croissance
+      }
+      else if (this.qtmulti == 10){
+        //this.money -= this.product.cout * this.product.croissance
+      }
+      else if (this.qtmulti == 100){
+        //this.money = 
+      }
+      else{
+        this.calcMaxCanBuy();
+      }
+    } */
+  } 
+
+
 
 }
-
-
