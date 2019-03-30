@@ -5,9 +5,7 @@
  */
 package com.isis.adventureISIServer.demo;
 
-import static javax.swing.text.html.FormSubmitEvent.MethodType.GET;
 import javax.ws.rs.GET;
-import static javax.ws.rs.HttpMethod.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;

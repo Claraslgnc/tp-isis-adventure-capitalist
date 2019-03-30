@@ -16,13 +16,11 @@ and open the template in the editor.
     <totalangels>0</totalangels>
     <activeangels>0</activeangels>
     <angelbonus>0</angelbonus>
-    <lastupdate>
-        
-    </lastupdate>
+    <lastupdate>-1</lastupdate>
     <products>
         <product>
             <id>
-                10
+                1
             </id>
             <name>lipstick</name>
             <logo>
@@ -32,7 +30,7 @@ and open the template in the editor.
                 4.28
             </cout>
             <croissance>
-                1,07
+                1.07
             </croissance>
             <revenu>
                 2
@@ -48,12 +46,12 @@ and open the template in the editor.
             </timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
-                20
+
             </palliers>
         </product>
         <product>
             <id>
-                20
+                2
             </id>
             <name>
                 mascara
@@ -62,18 +60,18 @@ and open the template in the editor.
                 masc.jpg
             </logo>
             <cout>69</cout>
-            <croissance>1,07</croissance>
+            <croissance>1.07</croissance>
             <revenu>60</revenu>
             <vitesse>4000</vitesse>
             <quantite>1</quantite>
-            <timeleft>3000</timeleft>
+            <timeleft>0</timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
-                50
+
             </palliers>
         </product>
         <product>
-            <id> 30 </id>
+            <id> 3</id>
             <name>
                 eye shadow
             </name>
@@ -84,7 +82,7 @@ and open the template in the editor.
                 150
             </cout>
             <croissance>
-                1,07
+                1.07
             </croissance>
             <revenu>
                 100
@@ -94,15 +92,15 @@ and open the template in the editor.
             </vitesse>
             <quantite>1</quantite>
             <timeleft>
-                6000
+                0
             </timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
-                80
+
             </palliers>
         </product>
         <product>
-            <id> 40 </id>
+            <id> 4 </id>
             <name>
                 blush
             </name>
@@ -123,11 +121,11 @@ and open the template in the editor.
             </vitesse>
             <quantite>1</quantite>
             <timeleft>
-                8000
+                0
             </timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
-                100
+
             </palliers>
         </product>
     </products>
@@ -136,108 +134,108 @@ and open the template in the editor.
             <name>range of makeup</name>
             <logo>mac.jpg</logo>
             <seuil>20</seuil>
-            <idcible>0</idcible>
+            <idcible></idcible>
             <ratio>2</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>makeup shelf</name>
             <logo>masc.jpg</logo>
             <seuil>50</seuil>
-            <idcible>20</idcible>
+            <idcible></idcible>
             <ratio>3</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </allunlocks>
     <upgrades>
-        <upgrade>
+        <pallier>
             <name>smoked purple</name>
             <logo>mac.jpg</logo>
             <seuil>500</seuil>
-            <idcible>10</idcible>
+            <idcible>1</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
-        </upgrade>
-        <upgrade>
+        </pallier>
+        <pallier>
             <name>hot yellow</name>
             <logo>mac.jpg</logo>
             <seuil>1000</seuil>
-            <idcible>10</idcible>
+            <idcible>1</idcible>
             <ratio>7</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
-        </upgrade>
-        <upgrade>
+        </pallier>
+        <pallier>
             <name>black mascara</name>
             <logo>masc.jpg</logo>
             <seuil>500</seuil>
-            <idcible>20</idcible>
+            <idcible>2</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
-        </upgrade>
-        <upgrade>
+        </pallier>
+        <pallier>
             <name>pink mascara</name>
             <logo>masc.jpg</logo>
             <seuil>1000</seuil>
-            <idcible>20</idcible>
+            <idcible>2</idcible>
             <ratio>7</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
-        </upgrade>
+        </pallier>
     </upgrades>
     <angelupgrades>
-        <angelupgrade>
+        <pallier>
             <name>angel sacrifice</name>
             <logo>angel.jpg</logo>
             <seuil>10000</seuil>
             <idcible>-1</idcible>
             <ratio>3</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
-        </angelupgrade>
-        <angelupgrade>
+        </pallier>
+        <pallier>
             <name>angelic mutiny</name>
             <logo>angel.jpg</logo>
             <seuil>100000</seuil>
             <idcible>-1</idcible>
             <ratio>2</ratio>
-            <typeratio>ANGE</typeratio>
+            <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
-        </angelupgrade>
-        <angelupgrade>
+        </pallier>
+        <pallier>
             <name>angelic rebellion</name>
             <logo>angel.jpg</logo>
             <seuil>100000000</seuil>
             <idcible>-1</idcible>
             <ratio>2</ratio>
-            <typeratio>ANGE</typeratio>
+            <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
-        </angelupgrade>
+        </pallier>
         
     </angelupgrades>
     <managers>
-        <manager>
+        <pallier>
             <name>Gigi</name>
             <logo>gigi.jpg</logo>
             <seuil>1000</seuil>
-            <idcible>10</idcible>
+            <idcible>1</idcible>
             <ratio></ratio>
             <typeratio></typeratio>
             <unlocked>false</unlocked>
-        </manager>
-        <manager>
+        </pallier>
+        <pallier>
             <name>Miranda</name>
             <logo>miranda.jpg</logo>
             <seuil>5000</seuil>
-            <idcible>20</idcible>
+            <idcible>2</idcible>
             <ratio></ratio>
             <typeratio></typeratio>
             <unlocked>false</unlocked>
-        </manager>
+        </pallier>
             
         
     </managers>

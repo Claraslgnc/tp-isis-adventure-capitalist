@@ -82,17 +82,12 @@ border-color:transparent;
         <h4 class="modal-title">Managers make you feel better !</h4> </div>
         <div class="app-modal-body">
             <div class="mngr" *ngFor="let manager of world.managers.pallier" >
-                    <div class="row">
-                            <div class="col-md-3">
-                                    <img class="img" [attr.src]="server+manager.logo">
-                                    LOGO
-                            </div>
-                        
-                        <div class="buton"><button type="button" class="btn btn-dark">Hire !</button></div> 
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="img" [attr.src]="server+manager.logo">
                     </div>
-                    
-                     
-
+                    <div class="buton"><button id='hireButton-{{manager.idcible}}' (click)="hireManager(manager)" type="button" class="btn btn-dark">Hire !</button></div> 
+                </div>
             </div>
         </div>
         <div class="app-modal-footer">

@@ -68,8 +68,7 @@ export class ProductComponent implements OnInit {
       console.log(this.server);
       }
 
-  @Output() 
-  notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
 
   startFabrication(progressbar: any, timeleft: any, lastupdate: any){
     this.progressbar.set(0);
@@ -90,7 +89,12 @@ export class ProductComponent implements OnInit {
         this.progressbar.set(0);
         //on prévient le parent que ce produit a généré son revenu.
         this.notifyProduction.emit(this.product);
+        if(this.product.managerUnlocked){
+          this.startFabrication(this.progressbar,this.timeleft,this.lastupdate)
+        }
       } 
+    }else if(this.product.managerUnlocked && this.product.timeleft == 0){
+      this.startFabrication(this.progressbar,this.timeleft,this.lastupdate)
     }
   }
 

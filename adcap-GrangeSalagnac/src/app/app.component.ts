@@ -42,4 +42,11 @@ onClickBuy(){
   }
 }
 
+  hireManager(manager:Pallier){
+    let button = <HTMLInputElement> document.getElementById("hireButton-"+manager.idcible+"")
+    button.disabled = true
+    this.world.products.product[manager.idcible-1].managerUnlocked = true
+    this.world.managers.pallier[manager.idcible-1].unlocked = true
+  }
+
 }
