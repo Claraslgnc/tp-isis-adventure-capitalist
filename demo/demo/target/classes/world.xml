@@ -221,7 +221,7 @@ and open the template in the editor.
         <pallier>
             <name>Gigi</name>
             <logo>gigi.jpg</logo>
-            <seuil>1000</seuil>
+            <seuil>100</seuil>
             <idcible>1</idcible>
             <ratio></ratio>
             <typeratio></typeratio>

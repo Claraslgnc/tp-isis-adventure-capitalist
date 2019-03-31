@@ -48,6 +48,7 @@ img {
     font-family: 'Permanent Marker', cursive;
     font-size: 37px;
     color: #483D37;
+
     /* width: 40%; */
 }
 
@@ -79,4 +80,45 @@ img {
     font-size: 20px;
     text-align: center;
     
+}
+
+.badge2{
+    font-family: 'Fira Sans Condensed', sans-serif;
+    color: #483D37;
+    font-size: 10px;
+    background-color: #f69594;
+}
+#mngrname{
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-variant-caps: all-petite-caps;
+    font-size:20px;
+
+}
+
+.modal-title{
+    font-family: 'Permanent Marker', cursive;
+    color: #f69594;
+    font-size:25px;
+}
+
+.imgM{
+    background-size: cover;
+    width: 100px;
+    height: 100px; 
+}
+
+.col-md-3{
+    font-family: 'Fira Sans Condensed', sans-serif;
+    color: #483D37;
+    font-size: 15px;
+}
+
+.butonMan{
+    color: #483D37;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.btn-default{
+    color: #483D37;
+    font-family: 'Permanent Marker', cursive;
 }
