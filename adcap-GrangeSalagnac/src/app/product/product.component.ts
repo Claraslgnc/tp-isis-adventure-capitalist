@@ -22,12 +22,13 @@ export class ProductComponent implements OnInit {
   money: number;
   timeleft: number;
   product: Product;
-  _qtmulti: number;
+  _qtmulti: string;
+  prixp: number;
 
   @ViewChild('bar') progressBarItem;
   
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
 
@@ -111,23 +112,34 @@ export class ProductComponent implements OnInit {
 
  
   @Input()
- set qtmulti(value: number) {
+ set qtmulti(value: string) {
     this._qtmulti = value;
     if (this._qtmulti && this.product){
-      if(this.qtmulti == 1){
-        //this. -= this.product.cout * this.product.croissance
+      if(this.qtmulti == "x1"){
+        this.money -= this.product.cout * this.product.croissance
       }
-      else if (this.qtmulti == 10){
-        //this.money -= this.product.cout * this.product.croissance
+      else if (this.qtmulti == "x10"){
+        this.money -= 10*(this.product.cout * this.product.croissance)
       }
-      else if (this.qtmulti == 100){
+      else if (this.qtmulti == "x100"){
+        this.money = 100*(this.product.cout * this.product.croissance)
+      }
+      else if (this.qtmulti == "Max"){
         //this.money = 
       }
       else{
         //this.calcMaxCanBuy();
       }
     }
-  } 
+  }
+
+  acheter(){
+    this.product.cout+=this.product.cout*this.product.croissance;
+    return this.product.cout;
+
+  }
+  
+  
 
 
 

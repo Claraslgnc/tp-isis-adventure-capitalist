@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BigvaluePipe } from './bigvalue.pipe';
 import { ModalComponent } from './modal/modal.component';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ToasterModule, ToasterService } from 'angular2-toaster';
     BrowserModule,
     HttpClientModule,
     //BrowserAnimationsModule,
-    ToasterModule
+    ToasterModule,
+    FormsModule
   ],
   providers: [ToasterService],
   bootstrap: [AppComponent]

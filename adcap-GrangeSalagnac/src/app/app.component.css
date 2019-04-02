@@ -12,14 +12,18 @@ img {
     background-color: #f69594;
 }
 
+/* .btn active{
+    color: red;
+} */
+
 .superp {
     position: relative;
 }
 
-.buton {
+/* .buton {
     /*position: absolute;
-    bottom: 20px;*/
-}
+    bottom: 20px;
+}*/
 
 
 .col-md-6{
@@ -103,8 +107,6 @@ img {
 
 .imgM{
     background-size: cover;
-    width: 100px;
-    height: 100px; 
 }
 
 .col-md-3{
@@ -121,4 +123,13 @@ img {
 .btn-default{
     color: #483D37;
     font-family: 'Permanent Marker', cursive;
+}
+
+.form{
+    width: 150px;
+    height: 30px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 20px;
+    font-variant-caps: all-petite-caps;
+    text-align: center;
 }

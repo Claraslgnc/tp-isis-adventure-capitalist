@@ -230,7 +230,25 @@ and open the template in the editor.
         <pallier>
             <name>Miranda</name>
             <logo>miranda.jpg</logo>
-            <seuil>5000</seuil>
+            <seuil>500</seuil>
+            <idcible>2</idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Naomi</name>
+            <logo>naomi.jpg</logo>
+            <seuil>1000</seuil>
+            <idcible>2</idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Hugo</name>
+            <logo>hugo.png</logo>
+            <seuil>3000</seuil>
             <idcible>2</idcible>
             <ratio></ratio>
             <typeratio></typeratio>

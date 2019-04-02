@@ -23,8 +23,8 @@ border-color:transparent;
       <span class="badge badge-secondary center">$<span [innerHTML]="world.money | bigvalue"></span></span>
     </div>
    <div class="col-md-4 col-h100" id="buy">
-    
-      <button type="button" class="btn btn-primary center" (click)="onClickBuy()">BUY x{{facteurMulti[multi]}}</button>
+      <input type="text" class="form" [(ngModel)]="username" (change)="onUsernameChanged()" placeholder="username?"/>
+      <button type="button" class="btn btn-primary center" (click)="onClickBuy()">BUY {{facteurMulti[multi]}}</button>
     
     </div>
 

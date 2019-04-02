@@ -3,6 +3,7 @@ import { RestserviceService } from './restservice.service';
 import { World, Product, Pallier} from './world';
 import { ToasterService } from 'angular2-toaster';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,9 +12,9 @@ import { ToasterService } from 'angular2-toaster';
 export class AppComponent {
   title = 'adcap-GrangeSalagnac';
 
-facteurMulti=[1,10,100];
+facteurMulti=["x1","x10","x100","Max"];
 multi: number=0;
-
+username: string;
 qtmulti: any;
 world: World = new World();
 server: string;
@@ -21,6 +22,14 @@ toasterService: ToasterService;
 New: string="";
 
 constructor(private service: RestserviceService, toasterService: ToasterService) {
+this.username = localStorage.getItem("username");
+if (this.username=null){
+  var chiffrealea=Math.floor(Math.random() * 10000);
+  this.username = "Makeup"+chiffrealea;
+  localStorage.setItem("username", this.username);
+  this.service.setUser(this.username);
+}
+
 this.server = service.getServer();
 this.toasterService=toasterService;
 service.getWorld().then(world => {
@@ -29,6 +38,7 @@ service.getWorld().then(world => {
   this.world = world;
   });
 this.notifyNew();
+
 }
 
 onProductionDone(p: Product){
@@ -74,5 +84,15 @@ onClickBuy(){
       }
     }
   }
+
+  onUsernameChanged(){
+      this.username = localStorage.getItem("username");
+      localStorage.setItem("username", this.username);
+    
+    
+
+  }
+
+
 
 }
