@@ -24,6 +24,7 @@ export class ProductComponent implements OnInit {
   product: Product;
   _qtmulti: string;
   prixp: number;
+  cout: any;
 
   @ViewChild('bar') progressBarItem;
   
@@ -32,7 +33,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
 
-    this.progressbar = new ProgressBar.Line(this.progressBarItem.nativeElement, {strokeWidth: 4,
+    this.progressbar = new ProgressBar.Line(this.progressBarItem.nativeElement, {
+      strokeWidth: 4,
       easing: 'easeInOut',
       duration: 1400,
       color: '#f69594',
@@ -45,13 +47,11 @@ export class ProductComponent implements OnInit {
         bar.path.setAttribute('stroke', state.color);
       }});
 
-    setInterval(() => { this.calcScore(); }, 100);
+    setInterval(() => { this.calcScore(); this.calcQuantite()}, 100);
     //this.progressbar.animate(1, { duration: this.product.vitesse });
     //this.progressbar.set(0.5);
-
-
-
-  }
+    
+    }
  
 
   
@@ -70,6 +70,7 @@ export class ProductComponent implements OnInit {
       }
 
   @Output() notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() notifyAchat: EventEmitter<Product> = new EventEmitter<Product>();
 
   startFabrication(progressbar: any, timeleft: any, lastupdate: any){
     this.progressbar.set(0);
@@ -101,13 +102,36 @@ export class ProductComponent implements OnInit {
 
 
 
-  calcMaxCanBuy(): any{
+  calcMaxCanBuy(): any{//calcule la quantité max que peut acheter le joueur. 
     var x=this.product.cout;
     var c=this.product.croissance;
-    var a = this.money;
-    this.money = (Math.log((1/c)-( ( a*(1-c)/(x*c) ))))/Math.log(c);
-    return this.money;
-    
+    var coutP = 0;
+    if(this._qtmulti == "Max"){
+      var quantite=0;
+      while(coutP < this.money){
+        coutP = coutP + x*(Math.pow(c,quantite+1))
+        quantite+=1
+      }
+      return [quantite, coutP];
+    //var quantite = (Math.log((1/c)-( ( a*(1-c)/(x*c) ))))/Math.log(c);
+    }
+    else if (this._qtmulti == "x1"){
+      coutP=x*c;
+      return [this._qtmulti, coutP];
+    }
+    else if (this._qtmulti == "x10"){
+      coutP= x*((c*(1-Math.pow(c,10)))/(1-c));
+      return [this._qtmulti,coutP];
+    }
+    else{
+      coutP= x*((c*(1-Math.pow(c,100)))/(1-c));
+      return [this._qtmulti,coutP];
+    }
+    }    
+  
+  calcQuantite(){
+    this._qtmulti = this.calcMaxCanBuy()[0];
+    this.cout=this.calcMaxCanBuy()[1];
   }
 
  
@@ -115,7 +139,11 @@ export class ProductComponent implements OnInit {
  set qtmulti(value: string) {
     this._qtmulti = value;
     if (this._qtmulti && this.product){
-      if(this.qtmulti == "x1"){
+      this._qtmulti=this.calcMaxCanBuy()[0];
+      this.cout=this.calcMaxCanBuy()[1];
+
+
+      /* if(this.qtmulti == "x1"){
         this.money -= this.product.cout * this.product.croissance
       }
       else if (this.qtmulti == "x10"){
@@ -129,14 +157,14 @@ export class ProductComponent implements OnInit {
       }
       else{
         //this.calcMaxCanBuy();
-      }
+      } */
     }
   }
 
   acheter(){
-    this.product.cout+=this.product.cout*this.product.croissance;
-    return this.product.cout;
-
+    var qte=this.calcMaxCanBuy()[0];
+    this.product.quantite+=qte;
+    this.notifyAchat.emit(this.cout);
   }
   
   
@@ -144,3 +172,4 @@ export class ProductComponent implements OnInit {
 
 
 }
+

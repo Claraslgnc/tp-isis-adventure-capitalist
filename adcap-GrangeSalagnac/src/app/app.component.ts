@@ -52,6 +52,12 @@ onProductionDone(p: Product){
   this.notifyNew();
 }
 
+/* onBuy(p): void{
+  this.world.money -= p;
+  this.notifyNew();
+} */
+
+
 
 onClickBuy(){
   if(this.multi == this.facteurMulti.length-1){
