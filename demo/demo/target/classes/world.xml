@@ -240,7 +240,7 @@ and open the template in the editor.
             <name>Naomi</name>
             <logo>naomi.jpg</logo>
             <seuil>1000</seuil>
-            <idcible>2</idcible>
+            <idcible>3</idcible>
             <ratio></ratio>
             <typeratio></typeratio>
             <unlocked>false</unlocked>
@@ -249,7 +249,7 @@ and open the template in the editor.
             <name>Hugo</name>
             <logo>hugo.png</logo>
             <seuil>3000</seuil>
-            <idcible>2</idcible>
+            <idcible>4</idcible>
             <ratio></ratio>
             <typeratio></typeratio>
             <unlocked>false</unlocked>
