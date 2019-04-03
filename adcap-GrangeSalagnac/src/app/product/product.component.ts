@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { Product, World } from 'src/app/world';
 import { Input, Output, EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
@@ -14,17 +14,19 @@ const ProgressBar = require("progressbar.js");
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, OnChanges {
   
   server: string;
   progressbar: any;
   lastupdate: number;
-  money: number;
+  _money: number;
   timeleft: number;
   product: Product;
   _qtmulti: string;
   prixp: number;
-  cout: any;
+  rate: string;
+  coutActuel: number;
+  revenu: number;
 
   @ViewChild('bar') progressBarItem;
   
@@ -47,15 +49,25 @@ export class ProductComponent implements OnInit {
         bar.path.setAttribute('stroke', state.color);
       }});
 
-    setInterval(() => { this.calcScore(); this.calcQuantite()}, 100);
+    setInterval(() => { this.calcScore()}, 100);
+    this.revenu=this.product.revenu;
+    this.coutActuel=this.product.cout;
+
     //this.progressbar.animate(1, { duration: this.product.vitesse });
     //this.progressbar.set(0.5);
     
     }
  
-
-  
-
+  ngOnChanges(changes: SimpleChanges): void{
+    if(changes._qtmulti){
+      if(this._qtmulti=="Max"){
+        this.rate=this.calcMaxCanBuy().toString();
+      }
+      else{
+        //this.rate=changes._qtmulti.currentValue;
+      }
+    }
+  }
 
   @Input()
   set prod(value: Product) {
@@ -69,8 +81,18 @@ export class ProductComponent implements OnInit {
       console.log(this.server);
       }
 
+  @Input()
+  set money(value: number) {
+    this._money = value;
+    //console.log("argentinitiale"+ value);
+    if(this._money && this.product){
+      //this.calcMaxCanBuy();
+      this.calcCout();
+    }
+    }
+
   @Output() notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
-  @Output() notifyAchat: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() notifyAchat: EventEmitter<number> = new EventEmitter<number>();
 
   startFabrication(progressbar: any, timeleft: any, lastupdate: any){
     this.progressbar.set(0);
@@ -102,74 +124,59 @@ export class ProductComponent implements OnInit {
 
 
 
-  calcMaxCanBuy(): any{//calcule la quantité max que peut acheter le joueur. 
-    var x=this.product.cout;
-    var c=this.product.croissance;
-    var coutP = 0;
-    if(this._qtmulti == "Max"){
-      var quantite=0;
-      while(coutP < this.money){
-        coutP = coutP + x*(Math.pow(c,quantite+1))
-        quantite+=1
-      }
-      return [quantite, coutP];
-    //var quantite = (Math.log((1/c)-( ( a*(1-c)/(x*c) ))))/Math.log(c);
-    }
-    else if (this._qtmulti == "x1"){
-      coutP=x*c;
-      return [this._qtmulti, coutP];
-    }
-    else if (this._qtmulti == "x10"){
-      coutP= x*((c*(1-Math.pow(c,10)))/(1-c));
-      return [this._qtmulti,coutP];
-    }
-    else{
-      coutP= x*((c*(1-Math.pow(c,100)))/(1-c));
-      return [this._qtmulti,coutP];
-    }
-    }    
-  
-  calcQuantite(){
-    this._qtmulti = this.calcMaxCanBuy()[0];
-    this.cout=this.calcMaxCanBuy()[1];
+  calcMaxCanBuy(){//calcule la quantité max que peut acheter le joueur. 
+    var q=this.product.croissance;
+    var c=this.product.cout;
+    var s=this._money;
+    //console.log("money"+ this._money);
+    const qtmax=(Math.log(1- ( (s* (1-q) ) / c ))) / Math.log(q);
+    //console.log("qtmax"+ qtmax);
+    return Math.trunc(qtmax);
   }
 
- 
+  
   @Input()
  set qtmulti(value: string) {
     this._qtmulti = value;
-    if (this._qtmulti && this.product){
-      this._qtmulti=this.calcMaxCanBuy()[0];
-      this.cout=this.calcMaxCanBuy()[1];
-
-
-      /* if(this.qtmulti == "x1"){
-        this.money -= this.product.cout * this.product.croissance
-      }
-      else if (this.qtmulti == "x10"){
-        this.money -= 10*(this.product.cout * this.product.croissance)
-      }
-      else if (this.qtmulti == "x100"){
-        this.money = 100*(this.product.cout * this.product.croissance)
-      }
-      else if (this.qtmulti == "Max"){
-        //this.money = 
-      }
-      else{
-        //this.calcMaxCanBuy();
-      } */
-    }
+    this.calcCout();
   }
 
   acheter(){
-    var qte=this.calcMaxCanBuy()[0];
-    this.product.quantite+=qte;
-    this.notifyAchat.emit(this.cout);
+    if(this._money > this.product.cout){
+      var cost=this.product.cout*(((1-Math.pow(this.product.croissance,parseInt(this.rate)))/(1-this.product.croissance)));
+      console.log("cout"+cost );
+      this.product.quantite+=parseInt(this.rate);
+      this.notifyAchat.emit(cost);
+      //this.revenu=this.revenu*this.product.quantite;
+      this.product.cout=this.product.cout*(Math.pow(this.product.croissance,this.product.quantite));
+  }}
+  
+  calcCout(){
+    var ct=this.product.cout;
+    var cr=this.product.croissance;
+    var coutP = 0;
+
+    if(this._qtmulti == "Max"){
+      coutP= ct*(((1-Math.pow(cr,this.calcMaxCanBuy())))/(1-cr));
+      this.coutActuel=coutP;
+      //console.log("calc" + this.calcMaxCanBuy());
+      this.rate=this.calcMaxCanBuy().toString();
+    }
+    if (this._qtmulti == "x1"){
+      coutP= ct*(((1-Math.pow(cr,1)))/(1-cr));
+      this.coutActuel=coutP;
+      this.rate = "1";
+    }
+    if (this._qtmulti == "x10"){
+      coutP= ct*(((1-Math.pow(cr,10)))/(1-cr));
+      this.coutActuel=coutP;
+      this.rate = "10";
+    }
+    if (this._qtmulti == "x100"){
+      coutP= ct*(((1-Math.pow(cr,100)))/(1-cr));
+      this.coutActuel=coutP;
+      this.rate = "100";
+    }
   }
-  
-  
-
-
-
 }
 

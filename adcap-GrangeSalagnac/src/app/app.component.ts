@@ -47,10 +47,10 @@ onProductionDone(p: Product){
   this.notifyNew();
 }
 
-/* onBuy(p): void{
+onBuy(p): void{
   this.world.money -= p;
   this.notifyNew();
-} */
+}
 
 
 

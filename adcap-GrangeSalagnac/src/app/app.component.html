@@ -73,7 +73,7 @@ border-color:transparent;
       
   </div>
   <div class="col-md-6" *ngFor="let product of world.products.product">
-      <app-product [prod]="product" [serv]="server" (notifyProduction)="onProductionDone($event)" [qtmulti]="facteurMulti[multi]"></app-product>
+      <app-product [prod]="product" [serv]="server" (notifyProduction)="onProductionDone($event)" (notifyAchat)="onBuy($event)" [qtmulti]="facteurMulti[multi]" [money]="world.money"></app-product>
     </div>
 
 
