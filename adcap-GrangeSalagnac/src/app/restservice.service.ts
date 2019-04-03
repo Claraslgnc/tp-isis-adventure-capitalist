@@ -34,14 +34,20 @@ export class RestserviceService {
     }
 
 
-     private handleError(error: any): Promise<any> {
-      console.error('An error occurred', error);
-      return Promise.reject(error.message || error);
-      }
-      getWorld(): Promise<World> {
+    private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
+    }
+
+    getWorld(): Promise<World> {
       return this.http.get(this.server + this.application + "generic/world")
       .toPromise().then(response =>response).catch(this.handleError);
-      };
+    };
+
+    sendProductDone(p:Product){
+      return this.http.put(this.server + this.application + "generic/product",p)
+      .toPromise().then(response =>response).catch(this.handleError);
+    }
 
    
 }
