@@ -42,6 +42,11 @@ this.notifyNew();
 }
 
 onProductionDone(p: Product){
+  if(!p.managerUnlocked){
+    this.service.sendProductDone(p)
+  }else{
+    //put manager
+  }
   this.world.money += p.revenu * p.quantite;
   this.world.score += p.revenu * p.quantite;
   this.notifyNew();
