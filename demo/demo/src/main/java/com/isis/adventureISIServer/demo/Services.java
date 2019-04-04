@@ -5,6 +5,8 @@
  */
 package com.isis.adventureISIServer.demo;
 
+import generated.PallierType;
+import generated.ProductType;
 import generated.World;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -88,6 +90,9 @@ public class Services {
     public World getWorld(String username){
         return readWorldFromXml(username);
     }
+    
+
+    
             
             
 }

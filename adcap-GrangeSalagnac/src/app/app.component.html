@@ -36,7 +36,11 @@ border-color:transparent;
   <div class="col-md-2">
         <br/>
       
-          <button type="button" class="btn btn-primary">Unlocks</button>
+        <div class="buttonleft btn btn-primary" data-toggle="modal" (click)="unlockModal.show()" > 
+            <!-- <span class="badge2">{{New}}</span>--> Unlocks 
+          
+      </div>
+          <!----<button type="button" class="btn btn-primary" >Unlocks</button>-->
       
       <br/>
       <br/>
@@ -99,10 +103,43 @@ border-color:transparent;
             </div>
         </div>
         <div class="app-modal-footer">
-        <button type="button" class="btn btn-default" (click)="managersModal.hide()">Close</button> 
+        <button type="button" class="btn btn-default"  (click)="managersModal.hide()">Close</button> 
         </div>
     </app-modal>
 
+
+    <app-modal #unlockModal>
+        <div class="app-modal-header">
+            <h4 class="modal-title">Unlocks !</h4> 
+        </div>
+        <div class="app-modal-body">
+            <span *ngFor="let product of world.products.product">
+            <div class="unlck" *ngFor="let unlock of product.palliers.pallier" >
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="imgU" [attr.src]="server+unlock.logo">
+                    </div>
+                    <div class="col-md-3">
+                        <span id="mngrname"> {{unlock.name}} </span>
+                        <br/>
+                        <span id="mngrname"> {{unlock.seuil}} </span>
+                        <br/>
+                        <span id="mseuil">{{unlock.typeratio}} x{{unlock.ratio}}</span>
+                    </div>
+                    <!-- <div class="butonMan">
+                        <button id='hireButton-{{manager.idcible}}' (click)="hireManager(manager)" type="button" class="btn btn-dark">Hire !</button>
+                    </div>  -->
+                </div>
+            </div>
+                </span>
+        </div>
+        <div class="app-modal-footer">
+        <button type="button" class="btn btn-default" (click)="unlockModal.hide()">Close</button> 
+        </div>
+    </app-modal>
+
+
+    
 
       <!--
         <div class="row">

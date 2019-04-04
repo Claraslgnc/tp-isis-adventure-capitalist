@@ -46,6 +46,15 @@ and open the template in the editor.
             </timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
+                <pallier>
+                <name>smoked purple</name>
+                <logo>smoked.png</logo>
+                <seuil>10</seuil>
+                <idcible>1</idcible>
+                <ratio>3</ratio>
+                <typeratio>gain</typeratio>
+                <unlocked>false</unlocked>
+                </pallier>
 
             </palliers>
         </product>
@@ -67,6 +76,15 @@ and open the template in the editor.
             <timeleft>0</timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
+                <pallier>
+                <name>mascara collection</name>
+                <logo>mascaraunlock.jpg</logo>
+                <seuil>20</seuil>
+                <idcible>2</idcible>
+                <ratio>2</ratio>
+                <typeratio>vitesse</typeratio>
+                <unlocked>false</unlocked>
+                </pallier>
 
             </palliers>
         </product>
@@ -96,7 +114,16 @@ and open the template in the editor.
             </timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
-
+                
+            <pallier>
+                <name>makeup shelf</name>
+                <logo>eyeshad.jpg</logo>
+                <seuil>35</seuil>
+                <idcible>2</idcible>
+                <ratio>3</ratio>
+                <typeratio>vitesse</typeratio>
+                <unlocked>false</unlocked>
+            </pallier>
             </palliers>
         </product>
         <product>
@@ -130,35 +157,10 @@ and open the template in the editor.
         </product>
     </products>
     <allunlocks>
-        <pallier>
-            <name>range of makeup</name>
-            <logo>mac.jpg</logo>
-            <seuil>20</seuil>
-            <idcible>1</idcible>
-            <ratio>2</ratio>
-            <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
-        </pallier>
-        <pallier>
-            <name>makeup shelf</name>
-            <logo>masc.jpg</logo>
-            <seuil>50</seuil>
-            <idcible>2</idcible>
-            <ratio>3</ratio>
-            <typeratio>vitesse</typeratio>
-            <unlocked>false</unlocked>
-        </pallier>
+
     </allunlocks>
     <upgrades>
-        <pallier>
-            <name>smoked purple</name>
-            <logo>mac.jpg</logo>
-            <seuil>500</seuil>
-            <idcible>1</idcible>
-            <ratio>3</ratio>
-            <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
-        </pallier>
+      
         <pallier>
             <name>hot yellow</name>
             <logo>mac.jpg</logo>

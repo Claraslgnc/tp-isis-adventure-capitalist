@@ -60,6 +60,16 @@ export class RestserviceService {
       .toPromise().then(response =>response).catch(this.handleError);
     }
 
+    sendManagerHire(manager:Pallier){
+      let httpOptions = {
+        headers: new HttpHeaders(
+          {'X-User':localStorage.getItem("username")}
+        )
+      }
+      return this.http.put(this.server + this.application + "generic/manager",manager,httpOptions)
+      .toPromise().then(response =>response).catch(this.handleError);
+    }
+
     private setHeaders(user : string) : Headers { 
       var headers = new Headers(); 
       headers.append("X-User",user);

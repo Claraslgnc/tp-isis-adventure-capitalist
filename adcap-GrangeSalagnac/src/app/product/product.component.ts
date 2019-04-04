@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, SimpleChange, SimpleChanges } from '@angu
 import { Product, World } from 'src/app/world';
 import { Input, Output, EventEmitter } from '@angular/core';
 import { ViewChild } from '@angular/core';
+import { ToasterService } from 'angular2-toaster';
 
 
 declare var require;
@@ -27,13 +28,19 @@ export class ProductComponent implements OnInit, OnChanges {
   rate: string;
   coutActuel: number;
   revenu: number;
+  _seuilunlock: number;
+  _unlocked: boolean;
+  _nameunlocked: string;
+  toasterService: ToasterService;
   //var timeleftS=Math.floor(this.product.timeleft/60000) % 60;
   //timeleftS=Math.floor(this.product.timeleft/60000) % 60;
   
   @ViewChild('bar') progressBarItem;
   
 
-  constructor() {}
+  constructor(toasterService: ToasterService) {
+    this.toasterService=toasterService;
+  }
 
   ngOnInit() {
 
@@ -71,10 +78,20 @@ export class ProductComponent implements OnInit, OnChanges {
     }
   }
 
-  @Input()
+  /* @Input()
   set prod(value: Product) {
     this.product = value;
     console.log(this.product);
+  } */
+  @Input()
+  set prod(value: Product) {
+    this.product = value;
+    if (this.product && this.product.timeleft > 0) {
+      this.lastupdate = Date.now();
+      let progress = (this.product.vitesse - this.product.timeleft) / this.product.vitesse;
+      this.progressbar.set(progress);
+      this.progressbar.animate(1, { duration: this.product.timeleft }); 
+    }
   }
 
   @Input()
@@ -155,8 +172,19 @@ export class ProductComponent implements OnInit, OnChanges {
       this.notifyAchat.emit(cost);
       //this.revenu=this.revenu*this.product.quantite;
       this.product.cout=this.product.cout*(Math.pow(this.product.croissance,this.product.quantite));
-  }}
+      for(let pallier of this.product.palliers.pallier) {
+        if(this.product.quantite>= pallier.seuil){
+          pallier.unlocked = true;
+          this.toasterService.pop('success', 'Unlocked ',pallier.name);
+        }
+      }
+ 
+    }
+
+  }
   
+
+
   calcCout(){
     var ct=this.product.cout;
     var cr=this.product.croissance;

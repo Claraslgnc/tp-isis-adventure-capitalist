@@ -6,6 +6,7 @@
 package com.isis.adventureISIServer.demo;
 
 import com.google.gson.Gson;
+import generated.PallierType;
 import generated.ProductType;
 import generated.World;
 import javax.servlet.http.HttpServletRequest;
@@ -51,5 +52,40 @@ public class Webservices {
         services.saveWorldToXml(w,request.getHeader("X-user"));
         return Response.ok().build();
     }
+    
+    @PUT
+    @Path("manager")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Response setManager(@Context HttpServletRequest request,String manager) {
+        PallierType man = new Gson().fromJson(manager,PallierType.class);
+        World w = services.getWorld(request.getHeader("X-user"));
+        
+        PallierType manToUpdate = w.getManagers().getPallier().get(man.getIdcible()-1);
+        ProductType productToUpdate = w.getProducts().getProduct().get(man.getIdcible()-1);
+        if(!man.isUnlocked()){
+//            if(productToUpdate.getTimeleft()!=0 && productToUpdate.getTimeleft()<w.getLastupdate()){
+//                w.setMoney(w.getMoney()+productToUpdate.getQuantite()*productToUpdate.getRevenu());
+//            }
+//            else{
+//                productToUpdate.setTimeleft((w.getLastupdate()-productToUpdate.getTimeleft())/productToUpdate.getVitesse());
+//                System.out.println(productToUpdate.getTimeleft());
+//            }
+        }else{
+            if(manToUpdate.getSeuil()>w.getMoney()){
+                w.setMoney(0);
+            }
+            else{
+                manToUpdate.setUnlocked(true);
+                productToUpdate.setManagerUnlocked(true);
+                w.setMoney((w.getMoney()-manToUpdate.getSeuil()));
+                //productToUpdate.setTimeleft(w.getLastupdate()-productToUpdate.getTimeleft());
+            }
+           
+        }
+        services.saveWorldToXml(w,request.getHeader("X-user"));
+        return Response.ok().build();
+    }
+    
+    
     
 }

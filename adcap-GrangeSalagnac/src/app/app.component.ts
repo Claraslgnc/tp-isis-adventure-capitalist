@@ -76,6 +76,7 @@ hireManager(manager:Pallier){
     this.world.products.product[manager.idcible-1].managerUnlocked = true
     this.world.managers.pallier[manager.idcible-1].unlocked = true
     this.world.money-= manager.seuil;
+    this.service.sendManagerHire(manager)
     button.innerHTML="Already hired !";
     this.toasterService.pop('success', 'Manager hired ! ', manager.name);
     this.notifyNew();
@@ -86,6 +87,8 @@ hireManager(manager:Pallier){
     //this.toasterService.pop('error', 'Reset failed ! ', reason.status)
   }
  }
+
+
 
 
   notifyNew(){
