@@ -35,7 +35,7 @@ this.notifyNew();
 
 this.username = localStorage.getItem("username");
 this.service.setUser(this.username);
-if(this.username == null){
+if(this.username == null || this.username==""){
   this.initUser();
 }
 
@@ -69,15 +69,18 @@ onClickBuy(){
   }
 }
 
+
+
 hireManager(manager:Pallier){
   let button = <HTMLInputElement> document.getElementById("hireButton-"+manager.idcible+"")
-  if (this.world.score>=manager.seuil){
+  if (this.world.score>=manager.seuil && this.world.money >= manager.seuil){
     button.disabled = true
     this.world.products.product[manager.idcible-1].managerUnlocked = true
     this.world.managers.pallier[manager.idcible-1].unlocked = true
     this.world.money-= manager.seuil;
     this.service.sendManagerHire(manager)
     button.innerHTML="Already hired !";
+    button.disabled = true
     this.toasterService.pop('success', 'Manager hired ! ', manager.name);
     this.notifyNew();
 
@@ -101,7 +104,7 @@ hireManager(manager:Pallier){
   }
 
   initUser(){
-    this.username="CapAddict" + Math.floor(Math.random() * 10000);
+    this.username="MakeupAddict" + Math.floor(Math.random() * 100);
     localStorage.setItem("username", this.username);
     this.service.setUser(this.username);
   }

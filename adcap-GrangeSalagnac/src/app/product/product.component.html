@@ -3,8 +3,6 @@
                     <div class="superp2">
                         <div class="image" (click)="startFabrication()"><span> <img [attr.src]="server+product.logo" /> </span></div>
                         <div class="buton"><button type="button" class="btn btn-dark">
-                            
-                            
                             <span [innerHTML] ="product.quantite | bigvalue"></span>
                         </button></div>    
                     </div>
@@ -18,14 +16,14 @@
                         <div class="col-md-6">
                                 <button type="button" class="btn btn-secondary" (click)="acheter()"> 
                                     BUY {{rate}}
-
-                                   Cout :  <span [innerHTML] ="coutActuel | bigvalue"></span>
+                                    <br/>
+                                   Price :  <span [innerHTML] ="coutActuel | bigvalue"></span>
                     
                                 </button>
                     
                     </div>
                         <div class="col-md-6" id="tps">
-                            <span [innerHTML] ="product.timeleft"></span> ms restantes
+                            <span [innerHTML] ="product.timeleft"></span>  <br/> ms left
                             
                             
                         

@@ -71,15 +71,21 @@ public class Webservices {
 //                System.out.println(productToUpdate.getTimeleft());
 //            }
         }else{
-            if(manToUpdate.getSeuil()>w.getMoney()){
-                w.setMoney(0);
-            }
-            else{
-                manToUpdate.setUnlocked(true);
-                productToUpdate.setManagerUnlocked(true);
-                w.setMoney((w.getMoney()-manToUpdate.getSeuil()));
-                //productToUpdate.setTimeleft(w.getLastupdate()-productToUpdate.getTimeleft());
-            }
+            
+            manToUpdate.setUnlocked(true);
+            productToUpdate.setManagerUnlocked(true);
+            w.setMoney((w.getMoney()-manToUpdate.getSeuil()));
+            //productToUpdate.setTimeleft(w.getLastupdate()-productToUpdate.getTimeleft());
+            
+//            if(manToUpdate.getSeuil()>w.getMoney()){
+//                w.setMoney(0);
+//            }
+//            else{
+//                manToUpdate.setUnlocked(true);
+//                productToUpdate.setManagerUnlocked(true);
+//                w.setMoney((w.getMoney()-manToUpdate.getSeuil()));
+//                //productToUpdate.setTimeleft(w.getLastupdate()-productToUpdate.getTimeleft());
+//            }
            
         }
         services.saveWorldToXml(w,request.getHeader("X-user"));

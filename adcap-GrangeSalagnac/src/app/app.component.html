@@ -83,21 +83,23 @@ border-color:transparent;
 
     <app-modal #managersModal>
         <div class="app-modal-header">
-        <h4 class="modal-title">Managers make you feel better !</h4> </div>
+        <h4 class="modal-title">Managers make you feel prettier !</h4> </div>
         <div class="app-modal-body">
             <div class="mngr" *ngFor="let manager of world.managers.pallier" >
                 <div class="row">
                     <div class="col-md-3">
                         <img class="imgM" [attr.src]="server+manager.logo">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3" id="colMan">
+                    
                         <span id="mngrname"> {{manager.name}} </span>
                         <br/>
                         <br/>
-                        <span id="mseuil">{{manager.seuil}}</span>
+                        $<span id="mseuil">{{manager.seuil}}</span> required !
                     </div>
                     <div class="butonMan">
-                        <button id='hireButton-{{manager.idcible}}' (click)="hireManager(manager)" type="button" class="btn btn-dark">Hire !</button>
+                            <br/>
+                        <button id='hireButton-{{manager.idcible}}' [disabled]="world.money < manager.seuil" (click)="hireManager(manager)" type="button" class="btn btn-dark">Hire !</button>
                     </div> 
                 </div>
             </div>
@@ -110,21 +112,21 @@ border-color:transparent;
 
     <app-modal #unlockModal>
         <div class="app-modal-header">
-            <h4 class="modal-title">Unlocks !</h4> 
+            <h4 class="modal-title">Get unlocks for more style and efficiency !</h4> 
         </div>
         <div class="app-modal-body">
             <span *ngFor="let product of world.products.product">
             <div class="unlck" *ngFor="let unlock of product.palliers.pallier" >
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-6" id="imageunlock">
                         <img class="imgU" [attr.src]="server+unlock.logo">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6" id="colunlock">
                         <span id="mngrname"> {{unlock.name}} </span>
                         <br/>
-                        <span id="mngrname"> {{unlock.seuil}} </span>
+                        Get <span id="mngrname"> {{unlock.seuil}} </span> products !
                         <br/>
-                        <span id="mseuil">{{unlock.typeratio}} x{{unlock.ratio}}</span>
+                        Improve <span id="mseuil">{{unlock.typeratio}} x{{unlock.ratio}}</span>!
                     </div>
                     <!-- <div class="butonMan">
                         <button id='hireButton-{{manager.idcible}}' (click)="hireManager(manager)" type="button" class="btn btn-dark">Hire !</button>

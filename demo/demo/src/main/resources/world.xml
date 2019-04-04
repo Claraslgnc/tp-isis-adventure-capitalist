@@ -47,7 +47,7 @@ and open the template in the editor.
             <managerUnlocked>false</managerUnlocked>
             <palliers>
                 <pallier>
-                <name>smoked purple</name>
+                <name>lipstick on fire</name>
                 <logo>smoked.png</logo>
                 <seuil>10</seuil>
                 <idcible>1</idcible>
@@ -116,7 +116,7 @@ and open the template in the editor.
             <palliers>
                 
             <pallier>
-                <name>makeup shelf</name>
+                <name>sensual powder kit</name>
                 <logo>eyeshad.jpg</logo>
                 <seuil>35</seuil>
                 <idcible>2</idcible>

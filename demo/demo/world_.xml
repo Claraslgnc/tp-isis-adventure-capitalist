@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><world><name>Adventure MakeUp</name><logo>logo1.jpg</logo><money>6896876876786583.0</money><score>0.0</score><totalangels>0.0</totalangels><activeangels>0.0</activeangels><angelbonus>0</angelbonus><lastupdate>-1</lastupdate><products><product><id>1</id><name>lipstick</name><logo>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><world><name>Adventure MakeUp</name><logo>logo1.jpg</logo><money>1.0</money><score>0.0</score><totalangels>0.0</totalangels><activeangels>0.0</activeangels><angelbonus>0</angelbonus><lastupdate>-1</lastupdate><products><product><id>1</id><name>lipstick</name><logo>
                 mac.jpg
-            </logo><cout>4.28</cout><croissance>1.07</croissance><revenu>2.0</revenu><vitesse>1000</vitesse><quantite>1</quantite><timeleft>0</timeleft><managerUnlocked>false</managerUnlocked><palliers><pallier><name>smoked purple</name><logo>mac.jpg</logo><seuil>500.0</seuil><idcible>1</idcible><ratio>3.0</ratio><typeratio>gain</typeratio><unlocked>false</unlocked></pallier></palliers></product><product><id>2</id><name>
+            </logo><cout>4.28</cout><croissance>1.07</croissance><revenu>2.0</revenu><vitesse>1000</vitesse><quantite>1</quantite><timeleft>0</timeleft><managerUnlocked>false</managerUnlocked><palliers><pallier><name>smoked purple</name><logo>smoked.png</logo><seuil>10.0</seuil><idcible>1</idcible><ratio>3.0</ratio><typeratio>gain</typeratio><unlocked>false</unlocked></pallier></palliers></product><product><id>2</id><name>
                 mascara
             </name><logo>
                 masc.jpg
-            </logo><cout>69.0</cout><croissance>1.07</croissance><revenu>60.0</revenu><vitesse>4000</vitesse><quantite>1</quantite><timeleft>0</timeleft><managerUnlocked>false</managerUnlocked><palliers><pallier><name>range of makeup</name><logo>mac.jpg</logo><seuil>20.0</seuil><idcible>2</idcible><ratio>2.0</ratio><typeratio>vitesse</typeratio><unlocked>false</unlocked></pallier></palliers></product><product><id>3</id><name>
+            </logo><cout>69.0</cout><croissance>1.07</croissance><revenu>60.0</revenu><vitesse>4000</vitesse><quantite>1</quantite><timeleft>0</timeleft><managerUnlocked>false</managerUnlocked><palliers><pallier><name>mascara collection</name><logo>mascaraunlock.jpg</logo><seuil>20.0</seuil><idcible>2</idcible><ratio>2.0</ratio><typeratio>vitesse</typeratio><unlocked>false</unlocked></pallier></palliers></product><product><id>3</id><name>
                 eye shadow
             </name><logo>
                 eye.jpg
-            </logo><cout>150.0</cout><croissance>1.07</croissance><revenu>100.0</revenu><vitesse>8000</vitesse><quantite>1</quantite><timeleft>0</timeleft><managerUnlocked>false</managerUnlocked><palliers><pallier><name>makeup shelf</name><logo>masc.jpg</logo><seuil>50.0</seuil><idcible>2</idcible><ratio>3.0</ratio><typeratio>vitesse</typeratio><unlocked>false</unlocked></pallier></palliers></product><product><id>4</id><name>
+            </logo><cout>150.0</cout><croissance>1.07</croissance><revenu>100.0</revenu><vitesse>8000</vitesse><quantite>1</quantite><timeleft>0</timeleft><managerUnlocked>false</managerUnlocked><palliers><pallier><name>makeup shelf</name><logo>eyeshad.jpg</logo><seuil>35.0</seuil><idcible>2</idcible><ratio>3.0</ratio><typeratio>vitesse</typeratio><unlocked>false</unlocked></pallier></palliers></product><product><id>4</id><name>
                 blush
             </name><logo>
                 blush.jpg
