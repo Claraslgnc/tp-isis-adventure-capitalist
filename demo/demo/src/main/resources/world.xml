@@ -111,7 +111,7 @@ and open the template in the editor.
                 200
             </cout>
             <croissance>
-                1,07
+                1.07
             </croissance>
             <revenu>
                 150
@@ -134,7 +134,7 @@ and open the template in the editor.
             <name>range of makeup</name>
             <logo>mac.jpg</logo>
             <seuil>20</seuil>
-            <idcible></idcible>
+            <idcible>1</idcible>
             <ratio>2</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
@@ -143,7 +143,7 @@ and open the template in the editor.
             <name>makeup shelf</name>
             <logo>masc.jpg</logo>
             <seuil>50</seuil>
-            <idcible></idcible>
+            <idcible>2</idcible>
             <ratio>3</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>

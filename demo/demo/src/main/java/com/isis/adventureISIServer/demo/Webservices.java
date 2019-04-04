@@ -8,9 +8,11 @@ package com.isis.adventureISIServer.demo;
 import com.google.gson.Gson;
 import generated.ProductType;
 import generated.World;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpRequest;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 /**
@@ -27,23 +29,26 @@ public class Webservices {
     @GET
     @Path("world")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response getWorld() {
-        return Response.ok(services.getWorld()).build();
+    public Response getXml(@Context HttpServletRequest request) {
+        String username=request.getHeader("X-user");
+        System.out.println(username);
+        return Response.ok(services.getWorld(username)).build();
     }
 
     @PUT
     @Path("product")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response setProduct(String produit) {
+    public Response setProduct(@Context HttpServletRequest request,String produit) {
         ProductType product = new Gson().fromJson(produit,ProductType.class);
-        World w = services.getWorld();
+        World w = services.getWorld(request.getHeader("X-user"));
+        
         ProductType productToUpdate = w.getProducts().getProduct().get(product.getId()-1);
         if(product.getQuantite()-productToUpdate.getQuantite()>0){
             //Achat produit
         }else{
             w.setMoney(w.getMoney()+product.getQuantite()*productToUpdate.getRevenu());
         }
-        services.saveWorldToXml(w);
+        services.saveWorldToXml(w,request.getHeader("X-user"));
         return Response.ok().build();
     }
     

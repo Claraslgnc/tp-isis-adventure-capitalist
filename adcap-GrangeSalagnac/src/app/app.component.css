@@ -10,6 +10,8 @@ img {
 
 .btn{
     background-color: #f69594;
+    width: 120px;
+    height: 40px;
 }
 
 /* .btn active{

@@ -23,7 +23,7 @@ border-color:transparent;
       <span class="badge badge-secondary center">$<span [innerHTML]="world.money | bigvalue"></span></span>
     </div>
    <div class="col-md-4 col-h100" id="buy">
-      <input type="text" class="form" [(ngModel)]="username" (change)="onUsernameChanged()" placeholder="username?"/>
+      <input type="text" class="form" [(ngModel)]="username" (change)="onUsernameChanged(username)" value="{{username}}" placeholder="username?"/>
       <button type="button" class="btn btn-primary center" (click)="onClickBuy()">BUY {{facteurMulti[multi]}}</button>
     
     </div>
@@ -34,7 +34,6 @@ border-color:transparent;
   <div class="row">
 
   <div class="col-md-2">
-        <br/>
         <br/>
       
           <button type="button" class="btn btn-primary">Unlocks</button>

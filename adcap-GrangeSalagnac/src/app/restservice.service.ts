@@ -40,14 +40,33 @@ export class RestserviceService {
     }
 
     getWorld(): Promise<World> {
-      return this.http.get(this.server + this.application + "generic/world")
+      let httpOptions = {
+        headers: new HttpHeaders(
+          {'X-User':localStorage.getItem("username")}
+        )
+      }
+
+      return this.http.get(this.server + this.application + "generic/world",httpOptions)
       .toPromise().then(response =>response).catch(this.handleError);
     };
 
     sendProductDone(p:Product){
-      return this.http.put(this.server + this.application + "generic/product",p)
+      let httpOptions = {
+        headers: new HttpHeaders(
+          {'X-User':localStorage.getItem("username")}
+        )
+      }
+      return this.http.put(this.server + this.application + "generic/product",p,httpOptions)
       .toPromise().then(response =>response).catch(this.handleError);
     }
+
+    private setHeaders(user : string) : Headers { 
+      var headers = new Headers(); 
+      headers.append("X-User",user);
+      return headers;
+    }
+
+  
 
    
 }

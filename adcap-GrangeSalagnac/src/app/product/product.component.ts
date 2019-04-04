@@ -27,7 +27,9 @@ export class ProductComponent implements OnInit, OnChanges {
   rate: string;
   coutActuel: number;
   revenu: number;
-
+  //var timeleftS=Math.floor(this.product.timeleft/60000) % 60;
+  //timeleftS=Math.floor(this.product.timeleft/60000) % 60;
+  
   @ViewChild('bar') progressBarItem;
   
 
@@ -99,7 +101,11 @@ export class ProductComponent implements OnInit, OnChanges {
     this.progressbar.animate(1, { duration: this.product.vitesse, easing: 'easeInOut' });
     this.product.timeleft = this.product.vitesse;
     this.lastupdate = Date.now();
+
   }
+
+
+
 
   calcScore(): void {
     let now=Date.now();

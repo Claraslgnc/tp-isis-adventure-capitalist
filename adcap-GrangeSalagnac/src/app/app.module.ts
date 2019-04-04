@@ -8,6 +8,7 @@ import { BigvaluePipe } from './bigvalue.pipe';
 import { ModalComponent } from './modal/modal.component';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     HttpClientModule,
-    //BrowserAnimationsModule,
+    BrowserAnimationsModule,
     ToasterModule,
     FormsModule
   ],

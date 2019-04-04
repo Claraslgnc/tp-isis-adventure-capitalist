@@ -26,9 +26,9 @@ public class Services {
     
    
     
-    World readWorldFromXml(){
+    World readWorldFromXml(String username){
         System.out.println("enter");
-        File world_xml = new File("world_username.xml");
+        File world_xml = new File("world_"+username+".xml");
         if(world_xml.exists()){
             System.out.println("enter exist");
             JAXBContext cont;
@@ -43,7 +43,7 @@ public class Services {
                 return null;
             }
         }else{
-            System.out.println("enter not exist");
+            System.out.println("enter not exist");//création du monde
             InputStream input = getClass().getClassLoader().getResourceAsStream("world.xml");
             JAXBContext cont = null;
             try {
@@ -52,12 +52,12 @@ public class Services {
                 World world_base = (World) u.unmarshal(input);
 
                 Marshaller m = cont.createMarshaller();
-                m.marshal(world_base, new File("world_username.xml"));
+                m.marshal(world_base, new File("world_"+username+".xml"));
             } catch (JAXBException e) {
                 e.printStackTrace();
             }
 
-            JAXBContext cont2 = null;
+            JAXBContext cont2 = null;//retourne le monde que l'on a créé
             try {
                 cont2 = JAXBContext.newInstance(World.class);
                 Unmarshaller u2 = cont2.createUnmarshaller();
@@ -75,18 +75,18 @@ public class Services {
     }
     
             
-    void saveWorldToXml(World world){
+    void saveWorldToXml(World world,String username){
         try{
             JAXBContext cont = JAXBContext.newInstance(World.class);
             Marshaller m = cont.createMarshaller();
-            m.marshal(world, new File("world_username.xml"));
+            m.marshal(world, new File("world_"+username+".xml"));
         }catch (Exception e){
 
         }
 }
     
-    public World getWorld(){
-        return readWorldFromXml();
+    public World getWorld(String username){
+        return readWorldFromXml(username);
     }
             
             
